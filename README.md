@@ -16,17 +16,17 @@ It contains various useful tools.
 	decrypt:		s :s :b
 	dmorse:			s :s
 	encrypt:		s :s :b
-	f:(file input)	s
-	interpretbf:	s :s
+	f:(file input)		s
+	interpretbf:		s :s
 	morse:			s :s
-	o:(file output)	s :b
-	r:				s
+	o:(file output)		s :b
+	r:			s
 	randint:		i i
 	rands:			s :s :b
 	raw_atbash:		s
 	shift:			s i
 	subs:			s s :b :b
-	switch_base:	s i :i
+	switch_base:		s i :i
 	vigenere:		s s :b
 	chr:			i
 	ord:			s
