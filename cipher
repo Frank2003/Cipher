@@ -1,0 +1,47 @@
+#!/usr/bin/python
+import sys
+import Crypt.common as c
+import getopt
+from Crypt.common import *
+
+j=1
+l=len(sys.argv)
+funcs=dir(c)+funcs
+def argof(func):
+  return eval(func+'.__doc__') if not args.get(func,False) else args[func]
+
+def do(mode):
+  global j
+  exe=()
+  for dt in expand(argof(mode)):
+    j+=1
+    if j>=l or sys.argv[j]=='/':
+      j-=(j>=l)
+      break
+    cur=sys.argv[j]
+    if cur[0]=="-" and len(cur.strip('-'))>0 and legal(cur,funcs):
+      cur=do(identify(cur,funcs))
+      if cur==None:
+        continue
+    if cur=="-":
+      if (dt[0]!=':'):
+        raise BaseException("Necessary argument! (please use '--' if you mean '-')")
+      cur=None
+    if cur=="--":
+      cur="-"
+    arg=cur if cur==None else ensure(cur,dt[-1])
+    exe=exe+(arg,)
+  return eval(mode+repr(exe))
+
+while j<l:
+  cur=sys.argv[j]
+  if 1:
+    if cur[0]!='-' or not cur.strip('-'):
+      raise BaseException("Excess argument!")
+    mode=identify(cur,funcs) if not d.get(cur,False) else d[cur]
+    outp=do(mode)
+    if outp==None: continue
+    print(outp)
+    j+=1
+sys.stdout.flush()
+#sys.stdout.close()
