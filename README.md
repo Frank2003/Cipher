@@ -32,8 +32,8 @@ It contains various useful tools.
 	ord:			s
 	eval:			s
 	len:			s
-	-				(skip an UNECESSARY argument)
-	/				(end function)
+	-			(skip an UNECESSARY argument)
+	/			(end function)
 
 #### Note:
     s means string
